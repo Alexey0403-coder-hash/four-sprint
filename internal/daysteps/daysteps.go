@@ -33,6 +33,11 @@ func parsePackage(data string) (int, time.Duration, error) {
 		return 0, 0, fmt.Errorf("ошибка парсинга числа: %w", err)
 	}
 
+	if step <= 0 {
+		log.Println("количество шагов должно быть больше 0")
+		return 0, 0, err
+	}
+
 	//Длительность ходьбы типа time.Duration.
 	duration, err := time.ParseDuration(part[1])
 	if err != nil {
@@ -52,9 +57,8 @@ func DayActionInfo(data string, weight, height float64) string {
 		return ""
 	}
 
-	//проверяем, что количество шагов больше 0
 	if steps <= 0 {
-		log.Println("количество шагов должно быть больше 0") // Добавь это
+		log.Println("количество шагов должно быть больше 0")
 		return ""
 	}
 
