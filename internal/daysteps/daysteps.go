@@ -45,6 +45,12 @@ func parsePackage(data string) (int, time.Duration, error) {
 		return 0, 0, fmt.Errorf("ошибка парсинга времени: %w", err)
 	}
 
+	if duration <= 0 {
+		err := errors.New("продолжительность должна быть больше 0")
+		log.Println(err)
+		return 0, 0, err
+	}
+
 	return step, duration, nil
 }
 
