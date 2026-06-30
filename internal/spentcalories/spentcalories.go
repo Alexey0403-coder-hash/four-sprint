@@ -104,7 +104,7 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 	default:
 		return "", errors.New("неизвестный тип тренировки")
 	}
-	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f", trainType, hours, dist, speed, calories), nil
+	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainType, hours, dist, speed, calories), nil
 }
 
 // RunningSpentCalories принимает количество шагов, вес и рост и продолжительность бега, а возвращает количество потраченных каллорий и ошибку.
