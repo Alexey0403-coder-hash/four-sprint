@@ -34,7 +34,8 @@ func parsePackage(data string) (int, time.Duration, error) {
 	}
 
 	if step <= 0 {
-		log.Println("количество шагов должно быть больше 0")
+		err := errors.New("количество шагов должно быть больше 0")
+		log.Println(err)
 		return 0, 0, err
 	}
 
