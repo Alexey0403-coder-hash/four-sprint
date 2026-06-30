@@ -3,6 +3,7 @@ package daysteps
 import (
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 	"time"
@@ -47,7 +48,7 @@ func DayActionInfo(data string, weight, height float64) string {
 	//Получаем данные о количестве шагов, продолжительности прогулки и наличии ошибки
 	steps, duration, err := parsePackage(data)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return ""
 	}
 
@@ -65,7 +66,7 @@ func DayActionInfo(data string, weight, height float64) string {
 	//Количество калорий, потраченных при ходьбе.
 	calories, err := spentcalories.WalkingSpentCalories(steps, weight, height, duration)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return ""
 	}
 	return fmt.Sprintf("Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.\n", steps, distKm, calories)
