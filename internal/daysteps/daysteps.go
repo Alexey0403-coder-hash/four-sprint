@@ -54,6 +54,7 @@ func DayActionInfo(data string, weight, height float64) string {
 
 	//проверяем, что количество шагов больше 0
 	if steps <= 0 {
+		log.Println("количество шагов должно быть больше 0") // Добавь это
 		return ""
 	}
 
